@@ -203,3 +203,51 @@ a:active {
   color: #ff630e !important;
   background-color: white;
 }
+
+.card-base {
+  position: relative;
+  border: 1px solid #999;
+}
+
+.card-base .ant-card-body {
+  border-top: 1px solid #999;
+}
+
+.card-base.card-mentor > div:last-child {
+  padding-top: 0 !important;
+}
+
+.card-base > div:last-child {
+  padding-inline: 16px;
+  padding-top: 2.5rem;
+  padding-bottom: 16px;
+}
+
+.card-base > div:last-child h5 {
+  font-size: 24px;
+  margin: 0;
+}
+
+.card-base .ant-card-body .ant-image {
+  position: absolute;
+}
+
+.card-base .logo-course {
+  position: absolute;
+  top: -100%;
+  left: 20px;
+  padding: 2px;
+  border: 2px solid #999;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.card-base .ant-image:has(.level-course) {
+  position: absolute;
+  top: 35%;
+  right: 0;
+}
+
+.card-base p {
+  margin: 0;
+}

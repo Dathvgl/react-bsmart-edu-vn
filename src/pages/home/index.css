@@ -173,54 +173,6 @@
   padding-bottom: 25px;
 }
 
-.card-carousel {
-  position: relative;
-  border: 1px solid #999;
-}
-
-.card-carousel .ant-card-body {
-  border-top: 1px solid #999;
-}
-
-.card-carousel.card-mentor > div:last-child {
-  padding-top: 0 !important;
-}
-
-.card-carousel > div:last-child {
-  padding-inline: 16px;
-  padding-top: 2.5rem;
-  padding-bottom: 16px;
-}
-
-.card-carousel > div:last-child h5 {
-  font-size: 24px;
-  margin: 0;
-}
-
-.card-carousel .ant-card-body .ant-image {
-  position: absolute;
-}
-
-.card-carousel .logo-course {
-  position: absolute;
-  top: -100%;
-  left: 20px;
-  padding: 2px;
-  border: 2px solid #999;
-  border-radius: 5px;
-  background-color: #fff;
-}
-
-.card-carousel .ant-image:has(.level-course) {
-  position: absolute;
-  top: 35%;
-  right: 0;
-}
-
-.card-carousel p {
-  margin: 0;
-}
-
 .advantages-2::before {
   content: "";
   position: absolute;

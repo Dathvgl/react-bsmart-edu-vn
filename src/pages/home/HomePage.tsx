@@ -1,4 +1,3 @@
-import { CalendarOutlined, UserOutlined } from "@ant-design/icons";
 import {
   Button,
   Card,
@@ -7,7 +6,6 @@ import {
   Flex,
   Grid,
   Image,
-  Rate,
   Row,
   Space,
 } from "antd";
@@ -18,6 +16,7 @@ import Banner2Image from "~/assets/home/banner-2.webp";
 import Banner3Image from "~/assets/home/banner-3.webp";
 import Banner4Image from "~/assets/home/banner-4.webp";
 import BannerImage from "~/assets/home/banner.webp";
+import FunFactImage from "~/assets/home/funfact_bg.webp";
 import DaiHocImage from "~/assets/home/logo-dai-hoc-01 (1).webp";
 import DaiHoc2Image from "~/assets/home/logo-dai-hoc-01.webp";
 import DaiHoc3Image from "~/assets/home/logo-dai-hoc-02.webp";
@@ -26,9 +25,9 @@ import DaiHoc5Image from "~/assets/home/logo-dai-hoc-04.webp";
 import DaiHoc6Image from "~/assets/home/logo-dai-hoc-05.webp";
 import DaiHoc7Image from "~/assets/home/logo-dai-hoc-06.webp";
 import DaiHoc8Image from "~/assets/home/logo-dai-hoc-07.webp";
-import FunFactImage from "~/assets/home/funfact_bg.webp";
 import { ButtonLink } from "~/components/Button";
-import { CourseType, MentorType, courses, levels, mentors } from "~/demo";
+import { CardBase } from "~/components/Card";
+import { CourseType, MentorType, courses, mentors } from "~/demo";
 import "./index.css";
 
 const { useBreakpoint } = Grid;
@@ -292,86 +291,9 @@ function CourseCarousel({ courses }: { courses: CourseType[] }) {
         slidesToShow={slideShow}
         afterChange={afterChange}
       >
-        {courses.map((item) => {
-          const mentor = mentors.find((x) => x.id == item.mentor);
-          const level = levels.find((x) => x.id == item.level);
-
-          return (
-            <Card
-              key={item.id}
-              className="card-carousel"
-              cover={
-                <Image
-                  style={{ objectFit: "cover" }}
-                  src={item.thumbnail}
-                  preview={false}
-                  height={200}
-                  alt={item.name}
-                />
-              }
-            >
-              <Image
-                className="logo-course"
-                style={{ objectFit: "cover" }}
-                src={mentor?.thumbnail}
-                alt={mentor?.name}
-                preview={false}
-                width={72}
-                height={72}
-              />
-              <Image
-                className="level-course"
-                style={{ objectFit: "cover" }}
-                src={level?.thumbnail}
-                alt={level?.name}
-                preview={false}
-                width={50}
-                height={50}
-              />
-              <Space size="small" direction="vertical">
-                <h5 className="line-clamp-2" style={{ height: 75 }}>
-                  {item.name}
-                </h5>
-                <Link to="/" className="flex-sc" style={{ gap: 12 }}>
-                  <p style={{ color: "#999" }}>Mentor</p>
-                  <p className="base-txt">{mentor?.name}</p>
-                </Link>
-                <span>
-                  <UserOutlined className="base-text" />
-                  <i style={{ marginLeft: 5 }}>{item.register} Học viên</i>
-                </span>
-                <p className="line-clamp-3" style={{ height: 75 }}>
-                  {item.description}
-                </p>
-                <Rate
-                  disabled
-                  allowHalf
-                  defaultValue={item.rate}
-                  style={{ color: "#ff630e" }}
-                />
-                <Space size="small" style={{ fontSize: 18 }}>
-                  <span style={{ color: "firebrick", fontWeight: "bold" }}>
-                    {item.price.toLocaleString()} VND
-                  </span>
-                  <span>
-                    <CalendarOutlined />
-                    <i style={{ marginLeft: 5 }}>{item.lesson} Buổi học</i>
-                  </span>
-                </Space>
-                <ButtonLink
-                  style={{
-                    width: "100%",
-                    display: "block",
-                    textAlign: "center",
-                  }}
-                  path={`/course/${item.id}`}
-                >
-                  XEM CHI TIẾT
-                </ButtonLink>
-              </Space>
-            </Card>
-          );
-        })}
+        {courses.map((item) => (
+          <CardBase key={item.id} item={item} />
+        ))}
       </Carousel>
       <div className="flex-cc">
         {Array(total)
@@ -439,7 +361,7 @@ function MentorCarousel({ mentors }: { mentors: MentorType[] }) {
           return (
             <Card
               key={item.id}
-              className="card-carousel card-mentor"
+              className="card-base card-mentor"
               style={{ height: 550 }}
               cover={
                 <Image
