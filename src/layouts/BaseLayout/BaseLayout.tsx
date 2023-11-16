@@ -33,7 +33,7 @@ export const listNav = [
   },
   {
     key: "course",
-    path: "/",
+    path: "/course",
     name: "Khóa Học",
     children: [
       { key: "course:1", path: "/", name: "Back-End" },

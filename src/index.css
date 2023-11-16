@@ -93,3 +93,10 @@ a:active {
 .antd-input input::placeholder {
   color: rgba(255, 255, 255, 0.5);
 }
+
+.layout-header {
+  position: sticky;
+  top: 0;
+  background-color: white;
+  filter: drop-shadow(rgba(0, 0, 0, 0.24) 0 1px 10px);
+}
