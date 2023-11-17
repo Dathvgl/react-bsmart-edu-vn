@@ -1,0 +1,35 @@
+.banner-course {
+  @apply relative bg-cover py-[110px];
+  @apply before:bg-[rgb(19,15,64)]/[.80];
+}
+
+.ant-breadcrumb-separator {
+  @apply !text-white;
+}
+
+.item-form {
+  @apply my-[10px];
+  @apply [&_span]:text-[#808080];
+}
+
+.check-form {
+  @apply flex flex-col;
+}
+
+.ant-list .ant-row {
+  @apply w-full;
+}
+
+.form-collapse {
+  @apply [&_.ant-collapse-header]:!p-0;
+  @apply [&_.ant-collapse-header]:!text-[17px];
+  @apply [&_.ant-collapse-header]:!font-bold;
+  @apply [&_.ant-collapse-header]:!text-black;
+  @apply md:[&_.ant-collapse-header]:!cursor-default;
+  @apply md:[&_.ant-collapse-header_.ant-collapse-expand-icon]:!hidden;
+  @apply [&_.ant-collapse-content-box]:!p-0;
+}
+
+.ant-input-number-handler-wrap {
+  @apply invisible;
+}
