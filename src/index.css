@@ -76,38 +76,6 @@ p {
   font-size: 25px;
 }
 
-.ant-menu-item-selected,
-.ant-menu-item-active.ant-menu-item-only-child,
-.antd-menu li:hover {
-  color: #ff630e !important;
-}
-
-.ant-menu-item.ant-menu-item-only-child:hover {
-  background-color: inherit !important;
-}
-
-.antd-menu ul,
-.antd-menu li::after {
-  border-bottom-width: 0px !important;
-}
-
-.antd-input input {
-  color: white;
-  background-color: #26224c;
-}
-
-.antd-input input::placeholder {
-  color: rgba(255, 255, 255, 0.5);
-}
-
-.layout-header {
-  position: sticky;
-  top: 0;
-  z-index: 500;
-  background-color: white;
-  filter: drop-shadow(rgba(0, 0, 0, 0.24) 0 1px 10px);
-}
-
 .btn-link {
   @apply px-5 py-[10px] !text-white bg-[#ff630e] font-bold;
   @apply border-[#ff630e] border-[1px] border-solid;

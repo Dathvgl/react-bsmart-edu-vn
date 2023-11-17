@@ -2,6 +2,7 @@ import { Layout, Space } from "antd";
 import { Link, Outlet } from "react-router-dom";
 import BaseFooter from "./components/BaseFooter";
 import BaseHeader from "./components/BaseHeader";
+import "./index.css";
 
 export const listNav = [
   {
@@ -11,24 +12,24 @@ export const listNav = [
   },
   {
     key: "about",
-    path: "/",
+    path: "/about",
     name: "Về Chúng tôi",
     children: [
       {
         key: "about:1",
-        path: "/",
+        path: "/about/founder",
         name: "Câu Chuyện Founder",
       },
       {
         key: "about:2",
-        path: "/",
+        path: "/about/lms",
         name: "Nền Tảng LMS",
       },
     ],
   },
   {
     key: "stem",
-    path: "/",
+    path: "/stem",
     name: "Khóa Học STEM",
   },
   {
@@ -36,37 +37,42 @@ export const listNav = [
     path: "/course",
     name: "Khóa Học",
     children: [
-      { key: "course:1", path: "/", name: "Back-End" },
-      { key: "course:2", path: "/", name: "Front-End" },
-      { key: "course:3", path: "/", name: "Database" },
-      { key: "course:4", path: "/", name: "Cấp tốc" },
-      { key: "course:5", path: "/", name: "Other" },
-      { key: "course:6", path: "/", name: "STEM" },
+      { key: "course:1", path: "/course", name: "Back-End", value: "backend" },
+      {
+        key: "course:2",
+        path: "/course",
+        name: "Front-End",
+        value: "frontend",
+      },
+      { key: "course:3", path: "/course", name: "Database", value: "database" },
+      { key: "course:4", path: "/course", name: "Cấp tốc", value: "fast" },
+      { key: "course:5", path: "/course", name: "Other", value: "other" },
+      { key: "course:6", path: "/course", name: "STEM", value: "stem" },
     ],
   },
   {
     key: "mentor",
-    path: "/",
+    path: "/mentor",
     name: "Mentor",
   },
   {
     key: "blog",
-    path: "/",
+    path: "/blog",
     name: "BLOG",
     children: [
       {
         key: "blog:1",
-        path: "/",
+        path: "/blog/technology",
         name: "Công Nghệ",
       },
       {
         key: "blog:2",
-        path: "/",
+        path: "/blog/discount",
         name: "Khuyến Mãi",
       },
       {
         key: "blog:3",
-        path: "/",
+        path: "/blog/education",
         name: "Giáo dục",
       },
     ],
@@ -75,7 +81,7 @@ export const listNav = [
 
 export default function BaseLayout() {
   return (
-    <Layout style={{ backgroundColor: "white" }}>
+    <Layout className="bg-white">
       <BaseHeader />
       <Outlet />
       <BaseFooter />

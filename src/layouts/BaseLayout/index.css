@@ -1,0 +1,46 @@
+.antd-header {
+  @apply text-white h-min leading-none py-4;
+}
+
+.antd-header .antd-input {
+  @apply w-[70%] border-0 bg-[#26224c];
+  @apply [&_input]:text-white;
+  @apply [&_input]:bg-[#26224c];
+  @apply [&_input::placeholder]:text-[rgb(255,255,255)]/[.50];
+}
+
+.layout-header {
+  @apply sticky top-0 z-50 bg-white;
+  filter: drop-shadow(rgba(0, 0, 0, 0.24) 0 1px 10px);
+}
+
+.ant-menu-item-selected,
+.ant-menu-item-active.ant-menu-item-only-child,
+.antd-menu li:hover {
+  @apply !text-[#ff630e];
+}
+
+.ant-menu-item.ant-menu-item-only-child:hover {
+  background-color: inherit !important;
+}
+
+.antd-menu ul,
+.antd-menu li::after {
+  @apply !border-b-0;
+}
+
+.antd-menu ul {
+  @apply justify-center;
+}
+
+.antd-menu li {
+  @apply !px-2 font-bold;
+}
+
+.ant-menu-sub {
+  @apply border-0 border-t-2 border-solid border-[#ff630e] font-bold top-0;
+}
+
+.ant-menu-submenu:has(ul) {
+  @apply !top-[140px];
+}

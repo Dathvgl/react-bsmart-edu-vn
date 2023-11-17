@@ -15,7 +15,7 @@ import {
 } from "antd";
 import { Header } from "antd/es/layout/layout";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import GmailLogo from "~/assets/icon-gmail.webp";
 import HomeMobileLogo from "~/assets/icon-logo-mobile.webp";
 import HomeLogo from "~/assets/icon-logo.webp";
@@ -44,17 +44,9 @@ function HeaderCart() {
 
 function HeaderTop() {
   return (
-    <Header
-      className="antd-header"
-      style={{
-        color: "white",
-        height: "min-content",
-        lineHeight: "0",
-        paddingBlock: "16px",
-      }}
-    >
+    <Header className="antd-header">
       <Row
-        style={{ height: "38px" }}
+        className="h-[38px]"
         justify="space-between"
         align="middle"
         gutter={20}
@@ -78,20 +70,9 @@ function HeaderTop() {
           <Form className="flex-cc">
             <Input
               className="antd-input"
-              style={{
-                width: "70%",
-                borderWidth: 0,
-                backgroundColor: "#26224c",
-              }}
               placeholder="Tìm kiếm khóa học"
               suffix={
-                <SearchOutlined
-                  className="base-text"
-                  style={{
-                    color: "rgba(255, 255, 255, 0.5)",
-                    fontSize: "20px",
-                  }}
-                />
+                <SearchOutlined className="base-text text-[20px] text-[rgb(255,255,255)]/[.50]" />
               }
             />
           </Form>
@@ -113,6 +94,9 @@ function HeaderTop() {
 }
 
 function HeaderBottom() {
+  const { pathname } = useLocation();
+  const short = pathname.split("/")[1];
+
   return (
     <Row className="layout-header" justify="space-between" align="middle">
       <Col>
@@ -121,14 +105,10 @@ function HeaderBottom() {
         </Link>
       </Col>
       <Col className="antd-menu" xs={0} sm={0} lg={24} flex="auto">
-        <div
-          id="header-menu-nav-land"
-          className="absolute-cc"
-          style={{ width: "100%" }}
-        >
+        <div id="header-menu-nav-land" className="absolute-cc w-full">
           <Menu
             mode="horizontal"
-            defaultSelectedKeys={["home"]}
+            selectedKeys={[short == "" ? "home" : short]}
             items={listNav.map((item) => {
               return {
                 key: item.key,
@@ -179,21 +159,24 @@ function HeaderSider() {
 
   return (
     <>
-      <MenuOutlined
-        className="base-text"
-        style={{ fontSize: 25 }}
-        onClick={showDrawer}
-      />
+      <MenuOutlined className="base-text text-[25px]" onClick={showDrawer} />
       <Drawer placement="right" closeIcon={null} onClose={onClose} open={open}>
-        <Flex vertical gap={8}>
+        <Flex vertical gap={20}>
           <Flex justify="space-between" align="center">
             <Link to="/">
-              <Image src={HomeMobileLogo} preview={false} height={75} />
+              <Image
+                className="object-cover"
+                src={HomeMobileLogo}
+                preview={false}
+                width={100}
+                height={75}
+              />
             </Link>
             <CloseOutlined onClick={onClose} />
           </Flex>
           <HeaderCart />
           <Tree
+            className="font-bold [&_.ant-tree-treenode]:py-2"
             onSelect={onSelect}
             treeData={listNav.map((item) => {
               return {
@@ -210,24 +193,23 @@ function HeaderSider() {
           />
           <Form>
             <Input
-              style={{ fontSize: 20 }}
+              className="text-[20px]"
               placeholder="Tìm kiếm khóa học"
-              suffix={
-                <SearchOutlined
-                  className="base-text"
-                  style={{ fontSize: "20px" }}
-                />
-              }
+              suffix={<SearchOutlined className="base-text text-[20px]" />}
             />
           </Form>
-          <div className="flex-sc" style={{ fontSize: 20 }}>
-            <Image src={GmailLogo} preview={false} width={40} />
-            admin@bsmart.edu.vn
-          </div>
-          <div className="flex-sc" style={{ fontSize: 20 }}>
-            <Image src={PhoneLogo} preview={false} width={40} />
-            028 9999 79 39
-          </div>
+          <Space direction="vertical">
+            <div className="flex-sc text-[20px]">
+              <Image src={GmailLogo} preview={false} width={40} />
+              admin@bsmart.edu.vn
+            </div>
+            <div className="flex-sc text-[20px]">
+              <Image src={PhoneLogo} preview={false} width={40} />
+              <span className="cursor-pointer text-blue-500">
+                028 9999 79 39
+              </span>
+            </div>
+          </Space>
           <SocialIconLink fill="black" />
           <Space size="small">
             <Link className="base-text" to="/">

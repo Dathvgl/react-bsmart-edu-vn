@@ -9,61 +9,53 @@ import { SocialIconLink, listNav } from "../BaseLayout";
 
 export default function BaseFooter() {
   return (
-    <Footer
-      style={{ color: "white", fontWeight: "normal", backgroundColor: "black" }}
-    >
+    <Footer className="text-white font-normal bg-black pt-12">
       <Row gutter={40}>
         <Col md={12} lg={7}>
           <Space size="middle" direction="vertical">
             <Link to="/">
               <Image src={HomeFooterLogo} preview={false} height={75} />
             </Link>
-            <section style={{ textAlign: "justify" }}>
+            <section className="text-justify">
               Chúng tôi cung cấp các khoá học chất lượng cao để cải thiện các kỹ
               năng lập trình của bạn. Tất cả các mentor của chúng tôi đều có
               nhiều kinh nghiệm trong thực tế và giảng dạy.
             </section>
             <section>
-              <h4 style={{ marginBottom: "8px" }}>Theo dõi chúng tôi tại:</h4>
+              <h4 className="mb-2">Theo dõi chúng tôi tại:</h4>
               <SocialIconLink fill="white" />
             </section>
           </Space>
         </Col>
-        <Col xs={24} sm={24} md={12} lg={4}>
+        <Col className="max-md:pt-12" xs={24} sm={24} md={12} lg={4}>
           <Space direction="vertical">
-            <h3 className="base-txt" style={{ marginBottom: "8px" }}>
-              Menu
-            </h3>
-            {listNav.map((item) => (
-              <Link key={item.key} to={item.path}>
-                {item.name}
-              </Link>
-            ))}
+            <h3 className="base-txt mb-2">Menu</h3>
+            <Space size="middle" direction="vertical">
+              {listNav.map((item) => (
+                <Link key={item.key} to={item.path}>
+                  {item.name}
+                </Link>
+              ))}
+            </Space>
           </Space>
         </Col>
-        <Col xs={24} sm={24} md={12} lg={5}>
-          <Space direction="vertical">
+        <Col className="max-[991px]:pt-12" xs={24} sm={24} md={12} lg={5}>
+          <Space size="large" direction="vertical">
             <Space direction="vertical">
-              <h3 className="base-txt" style={{ marginBottom: "8px" }}>
-                Điều khoản
-              </h3>
+              <h3 className="base-txt mb-2">Điều khoản</h3>
               <Link to="/">Chính sách bảo mật</Link>
               <Link to="/">Điều khoản dịch vụ</Link>
             </Space>
             <Space direction="vertical">
-              <h3 className="base-txt" style={{ marginBottom: "8px" }}>
-                Cộng tác viên
-              </h3>
+              <h3 className="base-txt mb-2">Cộng tác viên</h3>
               <Link to="/">Đăng ký Cộng tác viên</Link>
               <Link to="/">Đăng ký Mentor</Link>
             </Space>
           </Space>
         </Col>
-        <Col md={12} lg={8}>
+        <Col className="max-[991px]:pt-12" md={12} lg={8}>
           <Space direction="vertical">
-            <h3 className="base-txt" style={{ marginBottom: "8px" }}>
-              Liên hệ với chúng tôi
-            </h3>
+            <h3 className="base-txt mb-2">Liên hệ với chúng tôi</h3>
             <div>
               <Image
                 src={LocationLogo}
@@ -96,7 +88,7 @@ export default function BaseFooter() {
       </Row>
       <Divider dashed />
       <p className="flex-cc">
-        <span style={{ fontSize: 13 }}>
+        <span className="text-[13px]">
           © Bản quyền BSmart 2023 - Empowered by{" "}
           <Link style={{ color: "blue" }} to="/">
             BSmart
