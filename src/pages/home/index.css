@@ -1,16 +1,71 @@
+.banner {
+  @apply text-white relative text-center bg-cover transition-all duration-1000;
+  @apply min-[992px]:p-[110px] max-[992px]:py-[150px];
+  @apply before:bg-[rgb(5,1,51)]/[.70];
+  @apply min-[992px]:[&_h2]:text-[70px] max-[992px]:[&_h2]:text-[40px];
+  @apply min-[992px]:[&_p]:px-[20%] max-[992px]:[&_p]:px-[5%];
+  @apply [&>div]:relative;
+}
+
+.aboutus {
+  @apply py-[50px] relative bg-cover bg-fixed bg-center;
+  @apply max-lg:px-16 max-sm:px-4;
+  @apply before:bg-[rgb(255,255,255)]/[.70];
+  @apply [&_h1]:relative;
+}
+
+.advantages {
+  @apply py-[50px];
+  @apply max-[992px]:px-[10%] max-md:px-[5%] max-[576px]:px-[0.5%];
+}
+
+.learning-path {
+  @apply text-white text-center whitespace-nowrap;
+  @apply [&_h2]:text-[42px] [&_p]:text-[22px];
+  @apply [&>div>div>div]:h-[522px];
+  @apply before:[&>div>div>div]:bg-[rgb(0,0,0)]/[.50];
+  @apply hover:before:[&>div>div>div]:cursor-pointer;
+  @apply hover:before:[&>div>div>div]:duration-300;
+  @apply hover:before:[&>div>div>div]:bg-[rgb(0,0,0)]/[.00];
+  @apply [&_.absolute-cc]:top-[70%];
+  @apply before:[&>div>div>div]:rounded-lg;
+  @apply min-[992px]:before:[&>div>div>div]:left-0;
+  @apply min-[992px]:before:[&>div>div>div]:w-full;
+  @apply max-[992px]:[&>div]:gap-5;
+  @apply max-[992px]:[&>div>div]:px-5;
+  @apply max-[992px]:[&>div>div>div]:shadow-[0_0_6px_#000];
+  @apply max-[992px]:before:[&>div>div>div]:left-5;
+  @apply max-[992px]:before:[&>div>div>div]:w-[calc(100%-40px)];
+}
+
+.advantages-2 {
+  @apply bg-cover bg-fixed relative py-[65px] bg-center;
+  @apply before:bg-[rgb(0,0,0)]/[.10];
+  @apply [&>*]:relative;
+  @apply min-[992px]:[&_h4]:text-[24px];
+  @apply min-[992px]:[&_h2]:text-[30px];
+  @apply max-[992px]:[&_h4]:text-[15px];
+  @apply max-[992px]:[&_h2]:text-[21px];
+}
+
+.btn-carousel {
+  @apply min-w-0 w-6 h-5 border-0 p-0;
+  @apply hover:border-0 bg-transparent;
+  @apply [&_span]:w-[10px] [&_span]:h-[10px];
+  @apply [&_span]:bg-[#d6d6d6];
+  @apply [&_span.active]:bg-[#869791] hover:[&_span]:bg-[#869791];
+}
+
+.antd-carousel {
+  @apply [&>div>div>div]:px-[25px];
+  @apply [&>div>div>div]:pb-[25px];
+}
+
+.antd-carousel-image {
+  @apply [&>div>div>div]:px-[15px];
+}
+
 @media screen and (min-width: 992px) {
-  .banner {
-    padding: 110px;
-  }
-
-  .banner h2 {
-    font-size: 70px;
-  }
-
-  .banner p {
-    padding-inline: 20%;
-  }
-
   .learning-path > div > div:first-child {
     padding-right: 0.02px;
     clip-path: polygon(0 0, 100% 15%, 100% 100%, 0% 100%);
@@ -20,165 +75,4 @@
     padding-left: 0.02px;
     clip-path: polygon(0 15%, 100% 0, 100% 100%, 0% 100%);
   }
-
-  .learning-path > div > div > div::before {
-    left: 0;
-    width: 100%;
-  }
-
-  .advantages-2 h4 {
-    font-size: 24px;
-  }
-
-  .advantages-2 h2 {
-    font-size: 30px;
-  }
-}
-
-@media not screen and (min-width: 992px) {
-  .row-section {
-    padding-inline: 10%;
-  }
-
-  .banner {
-    padding: 150px 0px;
-  }
-
-  .banner h2 {
-    font-size: 40px;
-  }
-
-  .banner p {
-    padding-inline: 5%;
-  }
-
-  .learning-path > div {
-    gap: 20px;
-  }
-
-  .learning-path > div > div {
-    padding-inline: 20px;
-  }
-
-  .learning-path > div > div > div {
-    box-shadow: 0 0 6px #000;
-  }
-
-  .learning-path > div > div > div::before {
-    left: 20px;
-    width: calc(100% - 40px);
-  }
-
-  .advantages-2 h4 {
-    font-size: 15px;
-  }
-
-  .advantages-2 h2 {
-    font-size: 21px;
-  }
-}
-
-@media not screen and (min-width: 768px) {
-  .row-section {
-    padding-inline: 5%;
-  }
-
-  .row-section h1 {
-    font-size: 32px !important;
-  }
-}
-
-@media not screen and (min-width: 576px) {
-  .row-section {
-    padding-inline: 0.5%;
-  }
-}
-
-.learning-path h2,
-.learning-path p,
-.banner h2,
-.banner h4 {
-  margin: 0;
-}
-
-.banner,
-.learning-path .row-section {
-  transition: all 2s;
-}
-
-.learning-path {
-  color: white;
-  text-align: center;
-  white-space: nowrap;
-}
-
-.learning-path h2 {
-  font-size: 42px;
-}
-
-.learning-path p {
-  font-size: 22px;
-}
-
-.learning-path > div > div > div {
-  height: 522px;
-}
-
-.learning-path > div > div > div::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-}
-
-.learning-path > div > div > div:hover:before {
-  background-color: rgba(0, 0, 0, 0);
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.learning-path .absolute-cc {
-  top: 70%;
-}
-
-.btn-carousel {
-  min-width: 0;
-  width: 24px;
-  height: 20px;
-  border: 0;
-  padding: 0;
-}
-
-.btn-carousel:hover {
-  color: none;
-  border: 0;
-}
-
-.btn-carousel span {
-  width: 10px;
-  height: 10px;
-  background: #d6d6d6;
-}
-
-.btn-carousel span.active,
-.btn-carousel span:hover {
-  background: #869791;
-}
-
-.antd-carousel > div > div > div {
-  padding-inline: 25px;
-  padding-bottom: 25px;
-}
-
-.advantages-2::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.1);
 }

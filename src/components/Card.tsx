@@ -1,4 +1,6 @@
-import { CalendarOutlined, UserOutlined } from "@ant-design/icons";
+import { CalendarOutlined } from "@ant-design/icons";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Card, Image, Rate, Space } from "antd";
 import { Link } from "react-router-dom";
 import { CourseType, levels, mentors } from "~/demo";
@@ -14,7 +16,7 @@ export function CardBase({ item }: { item: CourseType }) {
       className="card-base"
       cover={
         <Image
-          style={{ objectFit: "cover" }}
+          className="object-cover"
           src={item.thumbnail}
           preview={false}
           height={200}
@@ -23,8 +25,7 @@ export function CardBase({ item }: { item: CourseType }) {
       }
     >
       <Image
-        className="logo-course"
-        style={{ objectFit: "cover" }}
+        className="logo-course object-cover"
         src={mentor?.thumbnail}
         alt={mentor?.name}
         preview={false}
@@ -32,8 +33,7 @@ export function CardBase({ item }: { item: CourseType }) {
         height={72}
       />
       <Image
-        className="level-course"
-        style={{ objectFit: "cover" }}
+        className="level-course object-cover"
         src={level?.thumbnail}
         alt={level?.name}
         preview={false}
@@ -41,43 +41,33 @@ export function CardBase({ item }: { item: CourseType }) {
         height={50}
       />
       <Space size="small" direction="vertical">
-        <h5 className="line-clamp-2" style={{ height: 75 }}>
-          {item.name}
-        </h5>
-        <Link to="/" className="flex-sc" style={{ gap: 12 }}>
-          <p style={{ color: "#999" }}>Mentor</p>
+        <h5 className="line-clamp-2 h-[75px]">{item.name}</h5>
+        <Link to="/" className="flex-sc gap-2 font-bold">
+          <p className="text-[#999]">Mentor</p>
           <p className="base-txt">{mentor?.name}</p>
         </Link>
         <span>
-          <UserOutlined className="base-text" />
-          <i style={{ marginLeft: 5 }}>{item.register} Học viên</i>
+          <FontAwesomeIcon icon={faUser} />
+          <i className="ml-[5px] font-bold">{item.register} Học viên</i>
         </span>
-        <p className="line-clamp-3" style={{ height: 75 }}>
-          {item.description}
-        </p>
+        <p className="line-clamp-3 h-[75px]">{item.description}</p>
         <Rate
+          className="base-txt"
           disabled
           allowHalf
           defaultValue={item.rate}
-          style={{ color: "#ff630e" }}
         />
         <Space size="small">
-          <span
-            style={{ color: "firebrick", fontWeight: "bold", fontSize: 18 }}
-          >
+          <span className="text-[firebrick] font-bold text-[18px]">
             {item.price.toLocaleString()} VND
           </span>
           <span>
             <CalendarOutlined />
-            <i style={{ marginLeft: 5 }}>{item.lesson} Buổi học</i>
+            <i className="ml-[5px] font-bold">{item.lesson} Buổi học</i>
           </span>
         </Space>
         <ButtonLink
-          style={{
-            width: "100%",
-            display: "block",
-            textAlign: "center",
-          }}
+          className="w-full block text-center !py-[5px] text-[20px] hover:!bg-[#ff630e] hover:!text-white hover:opacity-80 !font-normal"
           path={`/course/${item.id}`}
         >
           XEM CHI TIẾT

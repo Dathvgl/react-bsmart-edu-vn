@@ -1,4 +1,15 @@
 import {
+  faAngleLeft,
+  faAngleRight,
+  faCheckCircle,
+  faCogs,
+  faFire,
+  faQrcode,
+  faTrophy,
+  faUsers,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
   Button,
   Card,
   Carousel,
@@ -12,6 +23,7 @@ import {
 import { CarouselRef } from "antd/es/carousel";
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import AboutImage from "~/assets/home/background.webp";
 import Banner2Image from "~/assets/home/banner-2.webp";
 import Banner3Image from "~/assets/home/banner-3.webp";
 import Banner4Image from "~/assets/home/banner-4.webp";
@@ -32,56 +44,40 @@ import "./index.css";
 
 const { useBreakpoint } = Grid;
 
-const h1Base: React.CSSProperties = {
-  textAlign: "center",
-  marginTop: 0,
-  marginBottom: 30,
-  fontSize: 40,
-};
-
-const pBase: React.CSSProperties = { fontSize: 18, textAlign: "justify" };
-
-const sectionBase: React.CSSProperties = { paddingBlock: 50 };
-
 export default function HomePage() {
   return (
     <div>
       <section
-        className="banner"
-        style={{
-          backgroundImage: `url(${BannerImage})`,
-          backgroundSize: "cover",
-          textAlign: "center",
-          color: "white",
-        }}
+        className="banner before-layout"
+        style={{ backgroundImage: `url(${BannerImage})` }}
       >
-        <Space size="middle" direction="vertical">
-          <h4 className="base-txt" style={{ fontSize: 20 }}>
-            KHỞI ĐẦU SỰ NGHIỆP CỦA BẠN
-          </h4>
+        <Flex vertical gap={12} align="center">
+          <h4 className="base-txt text-[20px]">KHỞI ĐẦU SỰ NGHIỆP CỦA BẠN</h4>
           <h2>Trở thành lập trình viên chuyên nghiệp tại BSMART</h2>
-          <p>
+          <p className="leading-6">
             Với đội ngũ Mentor có nhiều năm kinh nghiệm giảng dạy cùng các khóa
             học chất lượng. BSMART sẽ giúp các bạn có định hướng về nghề nghiệp
             và phát triển bản thân trên con đường trở thành lập trình viên
             chuyên nghiệp
           </p>
-          <ButtonLink className="uppercase" path="/course">
+          <ButtonLink className="uppercase w-fit mt-16" path="/course">
             Xem khóa học
           </ButtonLink>
-        </Space>
+        </Flex>
       </section>
-      <section style={sectionBase}>
-        <h1 style={h1Base}>Về chúng tôi</h1>
+      <section
+        className="aboutus before-layout"
+        style={{
+          backgroundImage: `url(${AboutImage})`,
+        }}
+      >
+        <h1 className="text-center text-[40px] max-md:text-[32px] mb-[30px] max-md:mb-[5px]">
+          Về chúng tôi
+        </h1>
         <Row align="top">
           <Col lg={12}>
-            <Space
-              className="flex-1"
-              style={{ padding: 12 }}
-              size="middle"
-              direction="vertical"
-            >
-              <p style={pBase}>
+            <Space className="flex-1 p-3" size="middle" direction="vertical">
+              <p className="text-[18px] font-medium leading-[30px] max-[992px]:leading-[23px] max-md:leading-[26px] max-md:text-[15px] text-justify">
                 BSMART được thành lập với mục tiêu trở thành nền tảng tin cậy về
                 đào tạo lập trình viên, kết nối Mentor và Mentee. Với đội ngũ
                 Mentor giàu kinh nghiệm và chuyên môn, BSMART cam kết mang đến
@@ -94,7 +90,7 @@ export default function HomePage() {
                 trợ học viên trong quá trình học tập và phát triển sự nghiệp sau
                 khi tốt nghiệp.
               </p>
-              <Flex style={{ paddingBottom: 12 }} justify="center" gap={12}>
+              <Flex className="pb-3" justify="center" gap={12}>
                 <ButtonLink className="uppercase" path="/course">
                   Xem khóa học
                 </ButtonLink>
@@ -104,7 +100,7 @@ export default function HomePage() {
               </Flex>
             </Space>
           </Col>
-          <Col lg={12} style={{ paddingInline: 12 }}>
+          <Col className="px-3" lg={12}>
             <Image
               className="flex-1 rounded-lg"
               style={{ boxShadow: "0 0 15px #000" }}
@@ -114,49 +110,61 @@ export default function HomePage() {
           </Col>
         </Row>
       </section>
-      <section className="row-section" style={sectionBase}>
-        <h1 style={h1Base}>Điểm ưu việt tại BSmart</h1>
-        <Row style={{ width: "100%", paddingInline: 20 }} gutter={30}>
+      <section className="advantages">
+        <h1 className="text-center text-[40px] max-md:text-[32px] mb-[30px]">
+          Điểm ưu việt tại BSmart
+        </h1>
+        <Row className="w-full px-5 !ml-0 !mr-0" gutter={30}>
           {[
             {
+              icon: faCheckCircle,
               title: "Học theo lộ trình, có định hướng",
               content:
                 "BSmart sẽ định hướng và đưa ra các lộ trình học lập trình nhằm phát triển năng lực và niềm đam mê lập trình của bạn để có việc ngay sau khi học.",
             },
             {
+              icon: faCogs,
               title: "Nền tảng cốt lõi trong lập trình",
               content:
                 "BSmart cung cấp những nền tảng, giá trị tư duy cốt lõi nhất trong lập trình. Bạn sẽ tự tin trước sự thay đổi của công nghệ và môi trường làm việc.",
             },
             {
+              icon: faFire,
               title: "Mài giũa bạn qua thực tế",
               content:
                 'Đội ngũ Mentor là những người dày dặn kinh nghiệm qua các dự án thực tế tại các công ty lớn sẽ truyền đạt những kinh nghiệm "máu lửa" cho bạn.',
             },
             {
+              icon: faUsers,
               title: "Mentor tận tâm",
               content:
                 "Bạn sẽ được giao dự án và Teamwork ngay từ ngày đầu tiên. Đóng vai trò một thành viên trong quy trình Scrum, Agile. Được Mentor hỗ trợ tận tâm, nhiệt tình.",
             },
             {
+              icon: faQrcode,
               title: "Công nghệ mới, thực tế",
               content:
                 "Bạn được học và trải nghiệm các công nghệ lập trình mới nhất, chuyên sâu, bám sát nhu cầu tuyển dụng thực tế từ doanh nghiệp.",
             },
             {
+              icon: faTrophy,
               title: "Trao tay chìa khóa thành công",
               content:
                 "Hướng dẫn viết CV, phỏng vấn. Kết nối, gặp gỡ, phỏng vấn cùng doanh nghiệp ngay sau khi tốt nghiệp.",
             },
           ].map((item) => (
             <Col key={item.title} lg={8}>
-              <h4
-                className="base-txt"
-                style={{ fontSize: 22, marginBlock: 10 }}
-              >
-                {item.title}
-              </h4>
-              <p style={pBase}>{item.content}</p>
+              <Flex align="center" gap={12}>
+                <FontAwesomeIcon
+                  className="text-[30px] hover:opacity-80"
+                  color="#ff630e"
+                  icon={item.icon}
+                />
+                <h4 className="base-txt text-[22px] my-[10px]">{item.title}</h4>
+              </Flex>
+              <p className="text-justify leading-[30px] text-[20px] font-medium mb-4">
+                {item.content}
+              </p>
             </Col>
           ))}
         </Row>
@@ -165,11 +173,8 @@ export default function HomePage() {
         <Row>
           <Col xs={24} lg={12}>
             <div
-              className="rounded-lg"
-              style={{
-                backgroundImage: `url(${Banner3Image})`,
-                backgroundSize: "cover",
-              }}
+              className="rounded-lg bg-cover before-layout"
+              style={{ backgroundImage: `url(${Banner3Image})` }}
             >
               <div className="absolute-cc">
                 <h2>TRÁI NGÀNH</h2>
@@ -179,11 +184,8 @@ export default function HomePage() {
           </Col>
           <Col xs={24} lg={12}>
             <div
-              className="rounded-lg"
-              style={{
-                backgroundImage: `url(${Banner4Image})`,
-                backgroundSize: "cover",
-              }}
+              className="rounded-lg bg-cover before-layout"
+              style={{ backgroundImage: `url(${Banner4Image})` }}
             >
               <div className="absolute-cc">
                 <h2>ĐÃ BIẾT LẬP TRÌNH</h2>
@@ -193,29 +195,31 @@ export default function HomePage() {
           </Col>
         </Row>
       </section>
-      <section style={sectionBase}>
-        <h1 style={h1Base}>Khoá học tiêu biểu</h1>
+      <section className="py-[50px]">
+        <h1 className="text-center text-[40px] max-md:text-[32px] mb-[30px]">
+          Khoá học tiêu biểu
+        </h1>
         <CourseCarousel
           courses={courses.filter((item) => item.sector != "fast")}
         />
       </section>
-      <section style={sectionBase}>
-        <h1 style={h1Base}>Khoá học cấp tốc</h1>
+      <section className="py-[50px]">
+        <h1 className="text-center text-[40px] max-md:text-[32px] mb-[30px]">
+          Khoá học cấp tốc
+        </h1>
         <CourseCarousel
           courses={courses.filter((item) => item.sector == "fast")}
         />
       </section>
-      <section style={sectionBase}>
-        <h1 style={h1Base}>Mentor tiêu biểu</h1>
+      <section className="py-[50px]">
+        <h1 className="text-center text-[40px] max-md:text-[32px] mb-[30px]">
+          Mentor tiêu biểu
+        </h1>
         <MentorCarousel mentors={mentors} />
       </section>
       <section
-        className="advantages-2"
-        style={{
-          paddingBlock: 65,
-          backgroundImage: `url(${FunFactImage})`,
-          backgroundSize: "cover",
-        }}
+        className="advantages-2 before-layout"
+        style={{ backgroundImage: `url(${FunFactImage})` }}
       >
         <Flex vertical justify="center" align="center" gap={12}>
           <h4 style={{ margin: 0 }}>
@@ -232,8 +236,10 @@ export default function HomePage() {
           </Flex>
         </Flex>
       </section>
-      <section style={sectionBase}>
-        <h1 style={h1Base}>Nhận được sự tin tưởng của các đối tác</h1>
+      <section className="py-[50px] bg-[#f5f7fc]">
+        <h1 className="text-center text-[35px] py-[50px] px-[30px]">
+          Nhận được sự tin tưởng của các đối tác
+        </h1>
         <ImageCarousel
           images={[
             DaiHocImage,
@@ -280,8 +286,34 @@ function CourseCarousel({ courses }: { courses: CourseType[] }) {
     setSlide(index);
   }
 
+  function arrowClick(type: "left" | "right") {
+    if (type == "left") {
+      ref.current?.prev();
+    } else ref.current?.next();
+  }
+
   return (
-    <div>
+    <div className="relative">
+      <FontAwesomeIcon
+        className={`base-text z-[1] text-[32px] max-md:hidden absolute top-[48%] -translate-y-1/2 left-[5px] ${
+          slide == 0 ? "opacity-50" : "cursor-pointer"
+        }`}
+        icon={faAngleLeft}
+        onClick={slide == 0 ? undefined : () => arrowClick("left")}
+      />
+      <FontAwesomeIcon
+        className={`base-text z-[1] text-[32px] max-md:hidden absolute top-[48%] -translate-y-1/2 right-[5px] ${
+          slide == ref.current?.innerSlider.state.slideCount
+            ? "opacity-50"
+            : "cursor-pointer"
+        }`}
+        icon={faAngleRight}
+        onClick={
+          slide == ref.current?.innerSlider.state.slideCount
+            ? undefined
+            : () => arrowClick("right")
+        }
+      />
       <Carousel
         ref={ref}
         className="antd-carousel"
@@ -295,24 +327,13 @@ function CourseCarousel({ courses }: { courses: CourseType[] }) {
           <CardBase key={item.id} item={item} />
         ))}
       </Carousel>
-      <div className="flex-cc">
-        {Array(total)
-          .fill(0)
-          .map((_, index) => {
-            const result = slideShow + slideShow * index - slide;
-            const active = result <= slideShow && result > 0;
-
-            return (
-              <Button
-                key={index}
-                className="btn-carousel flex-cc"
-                onClick={() => onCarousel(index)}
-              >
-                <span className={`rounded-full${active ? " active" : ""}`} />
-              </Button>
-            );
-          })}
-      </div>
+      <DotCarousel
+        total={total}
+        slide={slide}
+        slideCount={ref.current?.innerSlider.state.slideCount ?? 0}
+        slideShow={slideShow}
+        onCarousel={onCarousel}
+      />
     </div>
   );
 }
@@ -346,8 +367,34 @@ function MentorCarousel({ mentors }: { mentors: MentorType[] }) {
     setSlide(index);
   }
 
+  function arrowClick(type: "left" | "right") {
+    if (type == "left") {
+      ref.current?.prev();
+    } else ref.current?.next();
+  }
+
   return (
-    <div>
+    <div className="relative">
+      <FontAwesomeIcon
+        className={`base-text z-[1] text-[32px] max-md:hidden absolute top-[48%] -translate-y-1/2 left-[5px] ${
+          slide == 0 ? "opacity-50" : "cursor-pointer"
+        }`}
+        icon={faAngleLeft}
+        onClick={slide == 0 ? undefined : () => arrowClick("left")}
+      />
+      <FontAwesomeIcon
+        className={`base-text z-[1] text-[32px] max-md:hidden absolute top-[48%] -translate-y-1/2 right-[5px] ${
+          slide == ref.current?.innerSlider.state.slideCount
+            ? "opacity-50"
+            : "cursor-pointer"
+        }`}
+        icon={faAngleRight}
+        onClick={
+          slide == ref.current?.innerSlider.state.slideCount
+            ? undefined
+            : () => arrowClick("right")
+        }
+      />
       <Carousel
         ref={ref}
         className="antd-carousel"
@@ -361,11 +408,10 @@ function MentorCarousel({ mentors }: { mentors: MentorType[] }) {
           return (
             <Card
               key={item.id}
-              className="card-base card-mentor"
-              style={{ height: 550 }}
+              className="card-base card-mentor h-[550px] [&_.ant-card-cover]:rounded-lg [&_.ant-card-cover]:overflow-hidden [&_.ant-card-body]:border-t-0"
               cover={
                 <Image
-                  style={{ objectFit: "cover" }}
+                  className="object-cover"
                   src={item.thumbnail}
                   preview={false}
                   height={300}
@@ -375,14 +421,7 @@ function MentorCarousel({ mentors }: { mentors: MentorType[] }) {
             >
               <Space direction="vertical">
                 <Link to="/">
-                  <h3
-                    className="base-txt"
-                    style={{
-                      textAlign: "center",
-                      marginTop: 20,
-                      marginBottom: 5,
-                    }}
-                  >
+                  <h3 className="base-txt text-center mt-5 mb-[5px] text-[24px]">
                     {item.name}
                   </h3>
                 </Link>
@@ -394,24 +433,13 @@ function MentorCarousel({ mentors }: { mentors: MentorType[] }) {
           );
         })}
       </Carousel>
-      <div className="flex-cc">
-        {Array(total)
-          .fill(0)
-          .map((_, index) => {
-            const result = slideShow + slideShow * index - slide;
-            const active = result <= slideShow && result > 0;
-
-            return (
-              <Button
-                key={index}
-                className="btn-carousel flex-cc"
-                onClick={() => onCarousel(index)}
-              >
-                <span className={`rounded-full${active ? " active" : ""}`} />
-              </Button>
-            );
-          })}
-      </div>
+      <DotCarousel
+        total={total}
+        slide={slide}
+        slideCount={ref.current?.innerSlider.state.slideCount ?? 0}
+        slideShow={slideShow}
+        onCarousel={onCarousel}
+      />
     </div>
   );
 }
@@ -424,7 +452,9 @@ function ImageCarousel({ images }: { images: string[] }) {
   const screens = useBreakpoint();
 
   useEffect(() => {
-    if (!screens.md) {
+    if (!screens.sm) {
+      setSlideShow(1);
+    } else if (!screens.md) {
       setSlideShow(2);
     }
 
@@ -440,10 +470,10 @@ function ImageCarousel({ images }: { images: string[] }) {
   }
 
   return (
-    <div>
+    <div className="px-[10%]">
       <Carousel
         ref={ref}
-        className="antd-carousel"
+        className="antd-carousel antd-carousel-image"
         dots={false}
         autoplay
         slidesToShow={slideShow}
@@ -453,27 +483,67 @@ function ImageCarousel({ images }: { images: string[] }) {
           return (
             <Image
               key={item}
-              style={{ objectFit: "cover" }}
+              className="object-cover"
               src={item}
-              height={100}
+              preview={false}
             />
           );
         })}
       </Carousel>
-      <div className="flex-cc">
-        {Array(total)
-          .fill(0)
-          .map((_, index) => {
-            const result = slideShow + slideShow * index - slide;
-            const active = result <= slideShow && result > 0;
+      <DotCarousel
+        total={total}
+        slide={slide}
+        slideCount={ref.current?.innerSlider.state.slideCount ?? 0}
+        slideShow={slideShow}
+      />
+    </div>
+  );
+}
 
-            return (
-              <Button key={index} className="btn-carousel flex-cc">
-                <span className={`rounded-full${active ? " active" : ""}`} />
-              </Button>
-            );
-          })}
-      </div>
+type DotCarouselProps = {
+  total: number;
+  slide: number;
+  slideCount: number;
+  slideShow: number;
+  onCarousel?: (index: number) => void;
+};
+
+function DotCarousel({
+  total,
+  slide,
+  slideCount,
+  slideShow,
+  onCarousel,
+}: DotCarouselProps) {
+  return (
+    <div className="flex-cc">
+      {Array(total)
+        .fill(0)
+        .map((_, index, { length }) => {
+          const max = slideCount;
+          const some = max - slide;
+          const alt = some > 0 && some <= slideShow;
+          let active = false;
+
+          if (alt) {
+            if (index == length - 1) {
+              active = true;
+            } else active = false;
+          } else {
+            const result = slideShow + slideShow * index - slide;
+            active = result <= slideShow && result > 0;
+          }
+
+          return (
+            <Button
+              key={index}
+              className="btn-carousel flex-cc"
+              onClick={onCarousel ? () => onCarousel(index) : undefined}
+            >
+              <span className={`rounded-full${active ? " active" : ""}`} />
+            </Button>
+          );
+        })}
     </div>
   );
 }

@@ -18,6 +18,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
           screenXLMax: 1280,
           screenXXL: 1280,
           screenXXLMin: 1280,
+          fontFamily: "Roboto, sans-serif",
         },
       }}
     >

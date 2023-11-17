@@ -1,6 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
   margin: 0;
-  font-weight: 500;
 }
 
 a,
@@ -9,6 +12,16 @@ a:visited,
 a:visited,
 a:active {
   color: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
 }
 
 @media screen and (min-width: 992px) {
@@ -31,27 +44,20 @@ a:active {
   }
 }
 
-.flex-1 {
-  flex: 1 1 0%;
-}
-
 .flex-sc {
-  display: flex;
-  justify-content: start;
-  align-items: center;
+  @apply flex justify-start items-center;
 }
 
 .flex-cc {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @apply flex justify-center items-center;
 }
 
 .absolute-cc {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
+}
+
+.before-layout::before {
+  @apply content-[''] absolute top-0 left-0 w-full h-full;
 }
 
 .base-txt {
@@ -102,152 +108,35 @@ a:active {
   filter: drop-shadow(rgba(0, 0, 0, 0.24) 0 1px 10px);
 }
 
-.rounded-none {
-  border-radius: 0px;
-}
-
-.rounded-sm {
-  border-radius: 0.125rem; /* 2px */
-}
-
-.rounded {
-  border-radius: 0.25rem; /* 4px */
-}
-
-.rounded-md {
-  border-radius: 0.375rem; /* 6px */
-}
-
-.rounded-lg {
-  border-radius: 0.5rem; /* 8px */
-}
-
-.rounded-xl {
-  border-radius: 0.75rem; /* 12px */
-}
-
-.rounded-2xl {
-  border-radius: 1rem; /* 16px */
-}
-
-.rounded-3xl {
-  border-radius: 1.5rem; /* 24px */
-}
-
-.rounded-full {
-  border-radius: 9999px;
-}
-
-.line-clamp-1 {
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 1;
-}
-
-.line-clamp-2 {
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-}
-
-.line-clamp-3 {
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
-}
-
-.line-clamp-4 {
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 4;
-}
-
-.line-clamp-5 {
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 5;
-}
-
-.line-clamp-6 {
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 6;
-}
-
-.line-clamp-none {
-  overflow: visible;
-  display: block;
-  -webkit-box-orient: horizontal;
-  -webkit-line-clamp: none;
-}
-
-.uppercase {
-  text-transform: uppercase;
-}
-
 .btn-link {
-  padding-inline: 20px;
-  padding-block: 10px;
-  color: white !important;
-  border: 1px solid #ff630e;
-  background-color: #ff630e;
-}
-
-.btn-link:hover {
-  color: #ff630e !important;
-  background-color: white;
+  @apply px-5 py-[10px] !text-white bg-[#ff630e] font-bold;
+  @apply border-[#ff630e] border-[1px] border-solid;
+  @apply hover:!text-[#ff630e] hover:bg-white/70;
 }
 
 .card-base {
-  position: relative;
-  border: 1px solid #999;
-}
-
-.card-base .ant-card-body {
-  border-top: 1px solid #999;
-}
-
-.card-base.card-mentor > div:last-child {
-  padding-top: 0 !important;
-}
-
-.card-base > div:last-child {
-  padding-inline: 16px;
-  padding-top: 2.5rem;
-  padding-bottom: 16px;
-}
-
-.card-base > div:last-child h5 {
-  font-size: 24px;
-  margin: 0;
-}
-
-.card-base .ant-card-body .ant-image {
-  position: absolute;
+  @apply relative;
+  @apply border-[#999] border-[1px] border-solid;
+  @apply [&_.ant-card-body]:border-[#999] border-[1px] border-solid;
+  @apply [&>.ant-card-body]:border-0;
+  @apply [&>.ant-card-body]:border-t;
+  @apply [&>.ant-card-body]:border-solid;
+  @apply [&>.ant-card-body]:border-[#999];
+  @apply [&>.ant-card-body]:last:px-4;
+  @apply [&>.ant-card-body]:last:pb-4;
+  @apply [&>.ant-card-body]:last:pt-10;
+  @apply [&>.ant-card-body_h5]:text-[24px];
+  @apply [&>.ant-card-body>.ant-image]:absolute;
+  @apply [&_.ant-image:has(.level-course)]:absolute;
+  @apply [&_.ant-image:has(.level-course)]:top-[33%];
+  @apply [&_.ant-image:has(.level-course)]:right-0;
 }
 
 .card-base .logo-course {
-  position: absolute;
-  top: -100%;
-  left: 20px;
-  padding: 2px;
-  border: 2px solid #999;
-  border-radius: 5px;
-  background-color: #fff;
+  @apply absolute -top-full left-[20px] p-[2px] rounded bg-[#fff];
+  @apply border-[#999] border-[1px] border-solid;
 }
 
-.card-base .ant-image:has(.level-course) {
-  position: absolute;
-  top: 35%;
-  right: 0;
-}
-
-.card-base p {
-  margin: 0;
+.card-base.card-mentor > div:last-child {
+  @apply !pt-0;
 }
