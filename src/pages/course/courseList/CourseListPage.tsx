@@ -26,8 +26,6 @@ type FormMind = {
   sectors?: string[];
 };
 
-const sectionBase: React.CSSProperties = { paddingBlock: 50 };
-
 export default function CourseListPage() {
   const pageSize = 6;
   const [form] = Form.useForm();
@@ -108,7 +106,7 @@ export default function CourseListPage() {
           />
         </Flex>
       </section>
-      <section style={sectionBase}>
+      <section className="py-[50px]">
         <Row className="w-full">
           <Col xs={24} sm={24} md={6}>
             <Form
