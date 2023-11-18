@@ -24,6 +24,21 @@ p {
   margin: 0;
 }
 
+@layer utilities {
+  @variants responsive {
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* Hide scrollbar for IE, Edge and Firefox */
+    .no-scrollbar {
+      -ms-overflow-style: none; /* IE and Edge */
+      scrollbar-width: none; /* Firefox */
+    }
+  }
+}
+
 @media screen and (min-width: 992px) {
   .antd-header {
     display: block;
@@ -107,4 +122,21 @@ p {
 
 .card-base.card-mentor > div:last-child {
   @apply !pt-0;
+}
+
+.btn-carousel {
+  @apply min-w-0 w-6 h-5 border-0 p-0;
+  @apply hover:border-0 bg-transparent;
+  @apply [&_span]:w-[10px] [&_span]:h-[10px];
+  @apply [&_span]:bg-[#d6d6d6];
+  @apply [&_span.active]:bg-[#869791] hover:[&_span]:bg-[#869791];
+}
+
+.antd-carousel {
+  @apply [&>div>div>div]:px-[25px];
+  @apply [&>div>div>div]:pb-[25px];
+}
+
+.antd-carousel-image {
+  @apply [&>div>div>div]:px-[15px];
 }

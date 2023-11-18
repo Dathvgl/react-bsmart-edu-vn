@@ -15,8 +15,8 @@ import { Link } from "react-router-dom";
 import BannerImage from "~/assets/course/banner-2.webp";
 import { CardBase } from "~/components/Card";
 import { CourseType, courses } from "~/demo";
+import "../index.css";
 import CourseCollapse from "./components/CourseCollapse";
-import "./index.css";
 
 type FormMind = {
   fromPrice: number;

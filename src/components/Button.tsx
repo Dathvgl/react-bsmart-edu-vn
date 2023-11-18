@@ -12,7 +12,7 @@ export function ButtonLink(props: ButtonLinkProps) {
 
   return (
     <Link
-      className={`btn-link rounded${className ? ` ${className}` : ""}`}
+      className={`btn-link rounded ${className ? `${className}` : ""}`}
       style={style}
       to={path}
     >

@@ -4,7 +4,7 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./index.css";
 import BaseLayout from "./layouts/BaseLayout/BaseLayout";
-import CourseDetailPage from "./pages/course/CourseDetailPage";
+import CourseDetailPage from "./pages/course/courseDetail/CourseDetailPage";
 import CourseListPage from "./pages/course/courseList/CourseListPage";
 import HomePage from "./pages/home/HomePage";
 
