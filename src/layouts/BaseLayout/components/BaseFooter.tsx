@@ -53,14 +53,16 @@ export default function BaseFooter() {
             </Space>
           </Space>
         </Col>
-        <Col className="max-[991px]:pt-12" md={12} lg={8}>
+        <Col className="max-[991px]:pt-12 text-[15px]" md={12} lg={8}>
           <Space direction="vertical">
             <h3 className="base-txt mb-2">Liên hệ với chúng tôi</h3>
             <div>
               <Image
+                className="object-cover"
                 src={LocationLogo}
                 preview={false}
                 width={40}
+                height={60}
                 alt="Liên hệ với BSmart thông qua địa điểm"
               />
               Tòa S9.02A, Vinhomes Grand Park, TP.Thủ Đức
