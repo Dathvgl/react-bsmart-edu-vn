@@ -4,7 +4,15 @@ import BaseFooter from "./components/BaseFooter";
 import BaseHeader from "./components/baseHeader/BaseHeader";
 import "./index.css";
 
-export const listNav = [
+type ListNavType = {
+  key: string;
+  path: string;
+  name: string;
+  value?: string;
+  children?: ListNavType[];
+};
+
+export const listNav: ListNavType[] = [
   {
     key: "home",
     path: "/",

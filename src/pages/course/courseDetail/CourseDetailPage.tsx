@@ -87,6 +87,7 @@ export default function CourseDetailPage() {
                   <Link
                     className="px-1 py-0.5 rounded !text-[#999999] bg-[#F5F5F5] hover:!text-white hover:bg-[#ff630e]"
                     to="/course"
+                    state={{ sector: sector.id }}
                   >
                     {sector.name}
                   </Link>

@@ -33,7 +33,11 @@ export default function HeaderBottom() {
                   return {
                     key: item.key,
                     label: (
-                      <Link key={item.key} to={item.path}>
+                      <Link
+                        key={item.key}
+                        to={item.path}
+                        state={{ sector: item.value }}
+                      >
                         {item.name}
                       </Link>
                     ),

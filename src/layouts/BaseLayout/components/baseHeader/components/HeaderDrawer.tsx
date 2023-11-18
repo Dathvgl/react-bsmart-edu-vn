@@ -23,7 +23,7 @@ export default function HeaderDrawer({ callback }: { callback: () => void }) {
           .children[1] as HTMLSpanElement;
         span.onclick = () => {
           callback();
-          navigate(nav.path);
+          navigate(nav.path, { state: nav.value });
         };
       }
     }

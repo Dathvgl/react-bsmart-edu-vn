@@ -13,6 +13,7 @@ import { useEffect, useState } from "react";
 import { CardBase } from "~/components/Card";
 import CourseCollapse from "./CourseCollapse";
 import { CourseType, courses } from "~/demo";
+import { useLocation } from "react-router-dom";
 
 type FormMind = {
   fromPrice: number;
@@ -24,6 +25,8 @@ type FormMind = {
 
 export default function CourseList() {
   const pageSize = 6;
+  const sectorPass: string | undefined = useLocation().state.sector;
+
   const [form] = Form.useForm();
   const [select, setSelect] = useState<string>("course");
   const [page, setPage] = useState<number>(1);
@@ -31,7 +34,12 @@ export default function CourseList() {
 
   useEffect(() => {
     onSort(data);
-  }, [select]);
+
+    if (sectorPass) {
+      form.setFieldValue("sectors", [sectorPass]);
+      form.submit();
+    }
+  }, [select, sectorPass]);
 
   function onFinish(event: FormMind) {
     const list = courses.filter((item) => {
