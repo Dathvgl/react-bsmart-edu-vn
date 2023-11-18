@@ -41,6 +41,20 @@
   @apply border-0 border-t-2 border-solid border-[#ff630e] font-bold top-0;
 }
 
-.ant-menu-submenu:has(ul) {
-  @apply !top-[140px];
+.ant-menu-submenu > .ant-menu {
+  @apply -mt-[15px];
+}
+
+.ant-tree-switcher {
+  @apply hidden;
+}
+
+.drawer-collapse {
+  @apply [&_span]:text-[#0e0a38];
+  @apply [&_span]:font-bold;
+  @apply [&_span]:cursor-pointer;
+}
+
+.ant-collapse-expand-icon:not(:has(*)) {
+  @apply !hidden;
 }

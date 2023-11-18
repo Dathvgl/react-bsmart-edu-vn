@@ -1,7 +1,10 @@
 import { CloseOutlined, MenuOutlined, SearchOutlined } from "@ant-design/icons";
+import { faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   Badge,
   Col,
+  Collapse,
   Drawer,
   Flex,
   Form,
@@ -10,12 +13,10 @@ import {
   Menu,
   Row,
   Space,
-  Tree,
-  TreeProps,
 } from "antd";
 import { Header } from "antd/es/layout/layout";
-import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { createRef, useEffect, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import GmailLogo from "~/assets/icon-gmail.webp";
 import HomeMobileLogo from "~/assets/icon-logo-mobile.webp";
 import HomeLogo from "~/assets/icon-logo.webp";
@@ -153,10 +154,6 @@ function HeaderSider() {
     setOpen(false);
   };
 
-  const onSelect: TreeProps["onSelect"] = (selectedKeys, info) => {
-    console.log("selected", selectedKeys, info);
-  };
-
   return (
     <>
       <MenuOutlined className="base-text text-[25px]" onClick={showDrawer} />
@@ -175,22 +172,7 @@ function HeaderSider() {
             <CloseOutlined onClick={onClose} />
           </Flex>
           <HeaderCart />
-          <Tree
-            className="font-bold [&_.ant-tree-treenode]:py-2"
-            onSelect={onSelect}
-            treeData={listNav.map((item) => {
-              return {
-                key: item.key,
-                title: item.name,
-                children: item.children?.map((item) => {
-                  return {
-                    key: item.key,
-                    title: item.name,
-                  };
-                }),
-              };
-            })}
-          />
+          <DrawerCollapse callback={onClose} />
           <Form>
             <Input
               className="text-[20px]"
@@ -223,5 +205,68 @@ function HeaderSider() {
         </Flex>
       </Drawer>
     </>
+  );
+}
+
+function DrawerCollapse({ callback }: { callback: () => void }) {
+  const navigate = useNavigate();
+  const [actives, setActives] = useState<string[]>([]);
+  const refs = Array.from({ length: listNav.length }, () =>
+    createRef<HTMLDivElement>()
+  );
+
+  useEffect(() => {
+    const { length } = refs;
+    for (let index = 0; index < length; index++) {
+      const ref = refs[index];
+      const nav = listNav[index];
+
+      if (ref.current) {
+        const span: HTMLSpanElement = ref.current.children[0]
+          .children[1] as HTMLSpanElement;
+        span.onclick = () => {
+          callback();
+          navigate(nav.path);
+        };
+      }
+    }
+  }, []);
+
+  function onActive(key: string | string[]) {
+    if (typeof key == "string") {
+      setActives([key]);
+    } else setActives(key);
+  }
+
+  return (
+    <div className="drawer-collapse">
+      <Collapse
+        activeKey={actives}
+        collapsible="icon"
+        ghost
+        expandIcon={({ isActive, ...rest }) => {
+          const panel = rest as any;
+          const children: React.ReactNode | undefined = panel.children;
+          if (!children) return <></>;
+          return <FontAwesomeIcon icon={isActive ? faMinus : faPlus} />;
+        }}
+        expandIconPosition="end"
+        onChange={onActive}
+        items={listNav.map((item, index) => ({
+          ref: refs[index],
+          key: item.key,
+          label: item.name,
+          children: item.children ? (
+            <Flex vertical gap={8}>
+              {item.children.map((item) => (
+                <Link key={item.key} to={item.path}>
+                  {item.name}
+                </Link>
+              ))}
+            </Flex>
+          ) : undefined,
+        }))}
+      />
+    </div>
   );
 }
