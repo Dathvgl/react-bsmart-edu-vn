@@ -1,12 +1,26 @@
 import { CalendarOutlined } from "@ant-design/icons";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Card, Image, Rate, Space } from "antd";
+import { Card, Divider, Image, Rate, Space } from "antd";
 import { Link } from "react-router-dom";
 import { CourseType, levels, mentors } from "~/demo";
 import { ButtonLink } from "./Button";
 
-export function CardBase({ item }: { item: CourseType }) {
+type CardBaseProps = {
+  item: CourseType;
+  levelCourseClassName?: string;
+  btnLinkDivider?: boolean;
+  btnLinkDividerClassName?: string;
+  btnLinkClassName?: string;
+};
+
+export function CardBase({
+  item,
+  levelCourseClassName,
+  btnLinkDivider,
+  btnLinkDividerClassName,
+  btnLinkClassName,
+}: CardBaseProps) {
   const mentor = mentors.find((x) => x.id == item.mentor);
   const level = levels.find((x) => x.id == item.level);
 
@@ -32,14 +46,16 @@ export function CardBase({ item }: { item: CourseType }) {
         width={72}
         height={72}
       />
-      <Image
-        className="level-course object-cover"
-        src={level?.thumbnail}
-        alt={level?.name}
-        preview={false}
-        width={50}
-        height={50}
-      />
+      <div className={levelCourseClassName}>
+        <Image
+          className="level-course object-cover"
+          src={level?.thumbnail}
+          alt={level?.name}
+          preview={false}
+          width={50}
+          height={50}
+        />
+      </div>
       <Space size="small" direction="vertical">
         <h5 className="line-clamp-2 h-[75px]">{item.name}</h5>
         <Link to="/" className="flex-sc gap-2 font-bold">
@@ -66,8 +82,12 @@ export function CardBase({ item }: { item: CourseType }) {
             <i className="ml-[5px] font-bold">{item.lesson} Buổi học</i>
           </span>
         </Space>
+        {btnLinkDivider && <Divider className={btnLinkDividerClassName} />}
         <ButtonLink
-          className="w-full block text-center !py-[5px] text-[20px] hover:!bg-[#ff630e] hover:!text-white hover:opacity-80 !font-normal"
+          className={
+            btnLinkClassName ??
+            "w-full block text-center !py-[5px] text-[20px] hover:!bg-[#ff630e] hover:!text-white hover:opacity-80 !font-normal"
+          }
           path={`/course/${item.id}`}
         >
           XEM CHI TIẾT

@@ -33,3 +33,43 @@
 .ant-input-number-handler-wrap {
   @apply invisible;
 }
+
+.antd-pagination {
+  @apply [&_.ant-pagination-item]:rounded-full;
+  @apply [&_.ant-pagination-item]:h-fit;
+  @apply [&_.ant-pagination-item_a]:w-10;
+  @apply [&_.ant-pagination-item_a]:h-10;
+  @apply [&_.ant-pagination-item_a]:px-0;
+  @apply [&_.ant-pagination-item_a]:flex;
+  @apply [&_.ant-pagination-item_a]:justify-center;
+  @apply [&_.ant-pagination-item_a]:items-center;
+  @apply [&_.ant-pagination-item]:bg-[#f5f5f5];
+  @apply [&_.ant-pagination-item-active_a]:text-white;
+  @apply [&_.ant-pagination-item-active]:bg-[#ff630e];
+  @apply hover:[&_.ant-pagination-item]:rounded-full;
+  @apply hover:[&_.ant-pagination-item_a]:text-white;
+  @apply hover:[&_.ant-pagination-item]:!bg-[#ff630e];
+}
+
+.antd-pagination:has(
+    .ant-pagination-item:nth-child(2).ant-pagination-item-active
+  ) {
+  @apply [&_.ant-pagination-prev]:hidden;
+}
+
+.antd-pagination:has(
+    .ant-pagination-item:nth-last-child(2).ant-pagination-item-active
+  ) {
+  @apply [&_.ant-pagination-next]:hidden;
+}
+
+.ant-pagination-prev,
+.ant-pagination-next {
+  @apply !h-fit;
+}
+
+.ant-pagination-prev button,
+.ant-pagination-next button {
+  @apply !bg-[#f5f5f5] !rounded-full !w-10 !h-10;
+  @apply hover:!bg-[#ff630e] hover:!text-white;
+}

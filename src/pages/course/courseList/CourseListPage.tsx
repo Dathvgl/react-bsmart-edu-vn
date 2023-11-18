@@ -130,7 +130,7 @@ export default function CourseListPage() {
               </Form.Item>
             </Form>
           </Col>
-          <Col md={18}>
+          <Col className="mb-[50px]" md={18}>
             <Space size="middle" className="w-full" direction="vertical">
               <Flex
                 className="pr-[25px] max-sm:px-4 max-sm:flex-col max-sm:items-start"
@@ -159,11 +159,18 @@ export default function CourseListPage() {
                 dataSource={data.slice((page - 1) * pageSize, page * pageSize)}
                 renderItem={(item) => (
                   <List.Item>
-                    <CardBase item={item} />
+                    <CardBase
+                      item={item}
+                      levelCourseClassName="[&>div]:!top-[30%]"
+                      btnLinkDivider
+                      btnLinkDividerClassName="mt-2 mb-2 border-black/20"
+                      btnLinkClassName="w-full block text-center !p-4 text-[16px] mb-8 !font-bold"
+                    />
                   </List.Item>
                 )}
               />
               <Pagination
+                className="antd-pagination flex-cc"
                 current={page}
                 onChange={setPage}
                 pageSize={pageSize}
