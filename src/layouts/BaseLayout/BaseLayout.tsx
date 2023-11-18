@@ -1,7 +1,7 @@
 import { Layout, Space } from "antd";
 import { Link, Outlet } from "react-router-dom";
 import BaseFooter from "./components/BaseFooter";
-import BaseHeader from "./components/BaseHeader";
+import BaseHeader from "./components/baseHeader/BaseHeader";
 import "./index.css";
 
 export const listNav = [
