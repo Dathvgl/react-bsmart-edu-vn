@@ -9,7 +9,6 @@ import {
   Space,
 } from "antd";
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
 import { learnMethod, levels, sectors } from "~/demo";
 
 const { useBreakpoint } = Grid;
@@ -165,18 +164,15 @@ export default function CourseCollapse() {
 }
 
 function SectorForm() {
-  const sectorPass: string | undefined = useLocation().state?.sector;
-
   return (
-    <Form.Item className="item-form" name="sectors" valuePropName="checked">
-      <Checkbox.Group
-        className="check-form"
-        defaultValue={sectorPass ? [sectorPass] : undefined}
-        options={sectors.map((item) => ({
-          label: item.name,
-          value: item.id,
-        }))}
-      />
+    <Form.Item className="item-form" name="sectors">
+      <Checkbox.Group className="check-form">
+        {sectors.map((item) => (
+          <Checkbox key={item.id} value={item.id}>
+            {item.name}
+          </Checkbox>
+        ))}
+      </Checkbox.Group>
     </Form.Item>
   );
 }
