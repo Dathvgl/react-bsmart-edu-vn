@@ -94,7 +94,7 @@ p {
 }
 
 .card-base {
-  @apply relative;
+  @apply relative overflow-hidden;
   @apply border-[#999] border-[1px] border-solid;
   @apply [&_.ant-card-body]:border-[#999] border-[1px] border-solid;
   @apply [&>.ant-card-body]:border-0;

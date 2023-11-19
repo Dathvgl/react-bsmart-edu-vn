@@ -88,7 +88,7 @@ export default function CourseList() {
   return (
     <section className="py-[50px]">
       <Row className="w-full">
-        <Col xs={24} sm={24} md={6}>
+        <Col xs={24} sm={24} md={12} lg={6}>
           <Form
             form={form}
             className="antd-form px-5"
@@ -104,7 +104,7 @@ export default function CourseList() {
             </Form.Item>
           </Form>
         </Col>
-        <Col className="mb-[50px]" md={18}>
+        <Col className="mb-[50px]" md={12} lg={18}>
           <Space size="middle" className="w-full" direction="vertical">
             <Flex
               className="pr-[25px] max-sm:px-4 max-sm:flex-col max-sm:items-start"
@@ -128,7 +128,7 @@ export default function CourseList() {
               />
             </Flex>
             <List
-              className="w-full max-md:[&_.ant-row]:!px-0 max-md:[&_.ant-col]:!px-4"
+              className="w-full max-md:[&_.ant-row]:!mx-0 max-md:[&_.ant-col]:!px-4"
               grid={{ gutter: 25, xxl: 3, xl: 3, lg: 2, sm: 1, xs: 1 }}
               dataSource={data.slice((page - 1) * pageSize, page * pageSize)}
               renderItem={(item) => (

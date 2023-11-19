@@ -1,5 +1,6 @@
 .banner-course {
   @apply relative bg-cover py-[110px];
+  @apply [&_h1]:text-center;
   @apply before:bg-[rgb(19,15,64)]/[.80];
 }
 

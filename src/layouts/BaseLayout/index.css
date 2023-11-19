@@ -53,8 +53,15 @@
   @apply [&_span]:text-[#0e0a38];
   @apply [&_span]:font-bold;
   @apply [&_span]:cursor-pointer;
+  @apply [&_.ant-collapse-header]:!px-0;
+  @apply [&_.ant-collapse-header]:!py-2;
 }
 
 .ant-collapse-expand-icon:not(:has(*)) {
   @apply !hidden;
+}
+
+.ant-drawer-content-wrapper {
+  @apply max-[992px]:!w-[290px];
+  @apply [&_.ant-drawer-body]:p-5;
 }
