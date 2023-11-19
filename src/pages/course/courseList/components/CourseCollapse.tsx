@@ -165,7 +165,7 @@ export default function CourseCollapse() {
 }
 
 function SectorForm() {
-  const sectorPass: string | undefined = useLocation().state.sector;
+  const sectorPass: string | undefined = useLocation().state?.sector;
 
   return (
     <Form.Item className="item-form" name="sectors" valuePropName="checked">

@@ -25,7 +25,7 @@ type FormMind = {
 
 export default function CourseList() {
   const pageSize = 6;
-  const sectorPass: string | undefined = useLocation().state.sector;
+  const sectorPass: string | undefined = useLocation().state?.sector;
 
   const [form] = Form.useForm();
   const [select, setSelect] = useState<string>("course");
