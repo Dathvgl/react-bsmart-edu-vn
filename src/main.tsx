@@ -7,6 +7,7 @@ import BaseLayout from "./layouts/BaseLayout/BaseLayout";
 import CourseDetailPage from "./pages/course/courseDetail/CourseDetailPage";
 import CourseListPage from "./pages/course/courseList/CourseListPage";
 import HomePage from "./pages/home/HomePage";
+import ScrollToTop from "./components/ScrollToTop";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
@@ -23,6 +24,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
       }}
     >
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<BaseLayout />}>
             <Route index element={<HomePage />} />
