@@ -75,7 +75,7 @@ export function CourseCarousel({ courses }: { courses: CourseType[] }) {
         afterChange={afterChange}
       >
         {courses.map((item) => (
-          <CardBase key={item.id} item={item} />
+          <CardBase key={item.id} item={item} coverLink />
         ))}
       </Carousel>
       <DotCarousel

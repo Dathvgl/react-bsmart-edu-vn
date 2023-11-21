@@ -1,4 +1,6 @@
-import { CloseOutlined, MenuOutlined, SearchOutlined } from "@ant-design/icons";
+import { MenuOutlined, SearchOutlined } from "@ant-design/icons";
+import { faClose } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Drawer, Flex, Form, Image, Input, Space } from "antd";
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -35,7 +37,11 @@ export default function HeaderSider() {
                 height={75}
               />
             </Link>
-            <CloseOutlined onClick={onClose} />
+            <FontAwesomeIcon
+              className="base-text"
+              icon={faClose}
+              onClick={onClose}
+            />
           </Flex>
           <HeaderCart />
           <HeaderDrawer callback={onClose} />

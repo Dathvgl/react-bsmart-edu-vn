@@ -8,6 +8,7 @@ import { ButtonLink } from "./Button";
 
 type CardBaseProps = {
   item: CourseType;
+  coverLink?: boolean;
   levelCourseClassName?: string;
   btnLinkDivider?: boolean;
   btnLinkDividerClassName?: string;
@@ -16,6 +17,7 @@ type CardBaseProps = {
 
 export function CardBase({
   item,
+  coverLink,
   levelCourseClassName,
   btnLinkDivider,
   btnLinkDividerClassName,
@@ -24,18 +26,28 @@ export function CardBase({
   const mentor = mentors.find((x) => x.id == item.mentor);
   const level = levels.find((x) => x.id == item.level);
 
+  const coverCard = (
+    <Image
+      className="object-cover"
+      src={item.thumbnail}
+      preview={false}
+      height={200}
+      alt={item.name}
+    />
+  );
+
   return (
     <Card
       key={item.id}
       className="card-base"
       cover={
-        <Image
-          className="object-cover"
-          src={item.thumbnail}
-          preview={false}
-          height={200}
-          alt={item.name}
-        />
+        coverLink ? (
+          <Link className="h-[200px] [&_*]:w-full" to={`/course/${item.id}`}>
+            {coverCard}
+          </Link>
+        ) : (
+          coverCard
+        )
       }
     >
       <Image

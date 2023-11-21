@@ -135,6 +135,7 @@ export default function CourseList() {
                 <List.Item>
                   <CardBase
                     item={item}
+                    coverLink
                     levelCourseClassName="[&>div]:!top-[30%]"
                     btnLinkDivider
                     btnLinkDividerClassName="mt-2 mb-2 border-black/20"

@@ -17,9 +17,14 @@ export default function CourseDetailInfo({ course }: { course: CourseType }) {
   return (
     <div className="w-1/3 max-[992px]:w-full mb-4">
       <Card className="course-detail-card">
-        <Flex vertical align="center" gap={12}>
+        <Flex
+          className="[&_div:has(img)]:w-full"
+          vertical
+          align="center"
+          gap={12}
+        >
           <Image
-            className="object-cover"
+            className="object-cover rounded-lg overflow-hidden"
             src={course.thumbnail}
             preview={false}
             alt={course.name}
