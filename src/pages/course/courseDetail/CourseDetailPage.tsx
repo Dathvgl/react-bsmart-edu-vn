@@ -49,12 +49,12 @@ export default function CourseDetailPage() {
           />
         </Flex>
       </section>
-      <div className="max-lg:mx-[10%] lg:mx-[2%]">
+      <div className="max-sm:mx-[5%] max-lg:mx-[10%] lg:mx-[2%]">
         <section className="pt-[100px] pb-[70px]">
           <Flex className="max-[992px]:flex-col-reverse" gap={24}>
             <div className="flex-1">
               <Flex
-                className="max-[992px]:flex-col"
+                className="max-[992px]:flex-col max-[992px]:justify-start max-[992px]:items-start"
                 justify="space-between"
                 align="center"
                 gap={8}

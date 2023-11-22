@@ -98,13 +98,17 @@ export default function CourseList() {
           >
             <CourseCollapse />
             <Form.Item>
-              <Button className="w-full mt-5" type="primary" htmlType="submit">
+              <Button
+                className="w-full mt-5 p-3 h-fit font-bold"
+                type="primary"
+                htmlType="submit"
+              >
                 Tìm kiếm
               </Button>
             </Form.Item>
           </Form>
         </Col>
-        <Col className="mb-[50px]" md={12} lg={18}>
+        <Col className="md:mb-[50px]" md={12} lg={18}>
           <Space size="middle" className="w-full" direction="vertical">
             <Flex
               className="pr-[25px] max-sm:px-4 max-sm:flex-col max-sm:items-start"
