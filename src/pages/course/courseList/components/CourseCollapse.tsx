@@ -1,3 +1,4 @@
+import { ArrowDownOutlined } from "@ant-design/icons";
 import {
   Checkbox,
   Collapse,
@@ -44,6 +45,7 @@ export default function CourseCollapse() {
         activeKey={actives}
         collapsible={collapsible}
         ghost
+        expandIcon={() => <ArrowDownOutlined />}
         onChange={onActive}
         items={[
           {
